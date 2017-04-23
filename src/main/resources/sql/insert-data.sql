@@ -1,0 +1,2 @@
+INSERT INTO users (login, password, email, first_name, last_name, description) VALUES ('JohnBlacky', '2345', 'John.Black@yahoo.com', 'John', 'Black', 'programmer');
+INSERT INTO users (login, password, email, first_name, last_name, description) VALUES ('KatePerry', '98765', 'Kate.ratth@rambler.com', 'Kate', 'Persieval', 'engineer');
