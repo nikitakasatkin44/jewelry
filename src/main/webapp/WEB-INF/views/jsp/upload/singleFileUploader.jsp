@@ -5,31 +5,34 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Spring 4 MVC File Multi Upload Example</title>
-	<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet" type="text/css"></link>
+	<title>Spring 4 MVC File Upload Example</title>
+	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet" type="text/css"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet" type="text/css"></link>
 </head>
 <body> 
 
 	<div class="form-container">
-		<h1>Spring 4 MVC Multi File Upload Example </h1>
-		<form:form method="POST" modelAttribute="multiFileBucket" enctype="multipart/form-data" class="form-horizontal">
+		<h1>Spring 4 MVC File Upload Example </h1>
+		<form:form method="POST" modelAttribute="fileBucket" enctype="multipart/form-data" class="form-horizontal">
 		
-			<c:forEach var="v" varStatus="vs" items="${multiFileBucket.files}">
-				<form:input type="file" path="files[${vs.index}].file" id="files[${vs.index}].file" class="form-control input-sm"/>
-				<div class="has-error">
-					<form:errors path="files[${vs.index}].file" class="help-inline"/>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label class="col-md-3 control-lable" for="file">Upload a file</label>
+					<div class="col-md-7">
+						<form:input type="file" path="file" id="file" class="form-control input-sm"/>
+						<div class="has-error">
+							<form:errors path="file" class="help-inline"/>
+						</div>
+					</div>
 				</div>
-			</c:forEach>
-			<br/>
+			</div>
+	
 			<div class="row">
 				<div class="form-actions floatRight">
 					<input type="submit" value="Upload" class="btn btn-primary btn-sm">
 				</div>
 			</div>
 		</form:form>
-		
-		<br/>
 		<a href="<c:url value='/welcome' />">Home</a>
 	</div>
 </body>

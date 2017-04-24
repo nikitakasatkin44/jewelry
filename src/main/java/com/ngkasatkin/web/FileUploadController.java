@@ -51,7 +51,7 @@ public class FileUploadController {
 	public String getSingleUploadPage(ModelMap model) {
 		FileBucket fileModel = new FileBucket();
 		model.addAttribute("fileBucket", fileModel);
-		return "singleFileUploader";
+		return "upload/singleFileUploader";
 	}
 
 	@RequestMapping(value = "/singleUpload", method = RequestMethod.POST)
@@ -60,7 +60,7 @@ public class FileUploadController {
 
 		if (result.hasErrors()) {
 			System.out.println("validation errors");
-			return "singleFileUploader";
+			return "upload/singleFileUploader";
 		} else {
 			System.out.println("Fetching file");
 			MultipartFile multipartFile = fileBucket.getFile();
@@ -69,7 +69,7 @@ public class FileUploadController {
 			FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File( UPLOAD_LOCATION + fileBucket.getFile().getOriginalFilename()));
 			String fileName = multipartFile.getOriginalFilename();
 			model.addAttribute("fileName", fileName);
-			return "success";
+			return "upload/success";
 		}
 	}
 
@@ -77,7 +77,7 @@ public class FileUploadController {
 	public String getMultiUploadPage(ModelMap model) {
 		MultiFileBucket filesModel = new MultiFileBucket();
 		model.addAttribute("multiFileBucket", filesModel);
-		return "multiFileUploader";
+		return "upload/multiFileUploader";
 	}
 
 	@RequestMapping(value = "/multiUpload", method = RequestMethod.POST)
@@ -86,7 +86,7 @@ public class FileUploadController {
 
 		if (result.hasErrors()) {
 			System.out.println("validation errors in multi upload");
-			return "multiFileUploader";
+			return "upload/multiFileUploader";
 		} else {
 			System.out.println("Fetching files");
 			List<String> fileNames = new ArrayList<String>();
@@ -97,7 +97,7 @@ public class FileUploadController {
 			}
 
 			model.addAttribute("fileNames", fileNames);
-			return "multiSuccess";
+			return "upload/multiSuccess";
 		}
 	}
 
