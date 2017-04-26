@@ -73,6 +73,7 @@
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="ISO-8859-1" />
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>

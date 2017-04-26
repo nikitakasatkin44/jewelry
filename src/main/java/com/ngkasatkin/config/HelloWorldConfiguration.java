@@ -33,16 +33,16 @@ public class HelloWorldConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public MessageSource messageSource() {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
+	public ResourceBundleMessageSource messageSource() {
+		ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
+		rb.setBasenames(new String[] { "messages/messages_en_GB","messages/messages_ru_RU"  });
+		return rb;
 	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/static/**").addResourceLocations(
-				"/static/");
+		registry.addResourceHandler("/resources/**").addResourceLocations(
+				"/resources/");
 	}
 
 }

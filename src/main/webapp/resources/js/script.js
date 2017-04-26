@@ -19,3 +19,10 @@ function post(path, params, method) {
 	document.body.appendChild(form);
 	form.submit();
 }
+
+$(document).ready(function(){
+	$(".navbar-collapse li").click(function(){
+		$(".navbar-collapse li").removeClass('active');
+		$(this).addClass('active');
+	});
+});
